@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Tomorrow Foundation - Empowering Dreams, One Child at a Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sky-blue: #4A90E2;
+            --deep-blue: #2E5C8A;
+            --gold: #F5A623;
+            --light-gold: #FFD68F;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--sky-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sky-blue);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--sky-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--deep-blue) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: var(--sky-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .image-card {
+            background: var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .image-caption {
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Mission Section */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--gold);
+        }
+
+        .mission-card h3 {
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--sky-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        /* Stories Section */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .story-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .story-info h3 {
+            color: var(--sky-blue);
+            margin-bottom: 0.2rem;
+        }
+
+        .story-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Donate Section */
+        .donate-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .donate-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .donate-card h3 {
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--sky-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: var(--deep-blue);
+        }
+
+        /* Blog Section */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 1rem;
+            background: var(--sky-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--deep-blue);
+        }
+
+        .contact-info {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: var(--sky-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-donate {
+            margin-bottom: 2rem;
+        }
+
+        .footer-donate h3 {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--light-gold) 0%, var(--light-gold) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 80%;
+            padding: 0 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Hope for Tomorrow</div>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                <li><a href="#" onclick="showSection('programs')">Our Work</a></li>
+                <li><a href="#" onclick="showSection('stories')">Pupils' Stories</a></li>
+                <li><a href="#" onclick="showSection('donate')">Donate</a></li>
+                <li><a href="#" onclick="showSection('blog')">Updates</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Empowering Dreams, One Child at a Time</h1>
+        <p>We're helping 50 vulnerable pupils stay in school through community and global support</p>
+        <a href="#" onclick="showSection('donate')" class="btn">Donate Now</a>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <div class="container">
+            <div class="intro">
+                <h2>Building Brighter Futures Together</h2>
+                <p>At Hope for Tomorrow Foundation, we believe every child deserves the opportunity to learn, grow, and achieve their dreams. Through our comprehensive support program, we're ensuring that 50 underprivileged pupils in Kenya can attend school without the burden of fees, lack of uniforms, or hunger holding them back.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="image-placeholder">📚 Children engaged in learning activities in classroom</div>
+                    <div class="image-caption">Quality Education for Every Child</div>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">😊 Happy students in uniforms smiling at camera</div>
+                    <div class="image-caption">Confident and Ready to Learn</div>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🎓 Students reading books together under a tree</div>
+                    <div class="image-caption">Building Knowledge, Creating Hope</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1rem;">Join Our Mission</h3>
+                <p style="max-width: 700px; margin: 0 auto 2rem;">Your support can transform a child's life. Every donation helps pay school fees, provide uniforms, ensure nutritious meals, and offer mentorship that guides them toward success.</p>
+                <a href="#" onclick="showSection('donate')" class="btn">Make a Difference Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="intro">
+                <h2>About Hope for Tomorrow Foundation</h2>
+                <p>Born from compassion, driven by purpose, committed to change</p>
+            </div>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1rem;">Our Story</h3>
+                <p style="line-height: 1.8;">Hope for Tomorrow Foundation was established by Edgar after witnessing firsthand the heartbreaking reality of school dropouts in his community. Seeing bright, capable children forced to abandon their education due to poverty ignited a passion to create lasting change. What started as a personal mission has grown into a community-driven initiative supported by local and global donors who share the vision of a Kenya where no child is left behind.</p>
+            </div>
+
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To provide access to education and essential support for underprivileged pupils, ensuring that every child — regardless of background — has the opportunity to complete school and build a brighter future.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>🌟 Our Vision</h3>
+                    <p>A Kenya where no child drops out of school due to poverty, and every learner has the hope, opportunity, and resources to achieve their dreams.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>💫 Our Motto</h3>
+                    <p style="font-style: italic; color: var(--gold); font-size: 1.1rem; font-weight: 600;">"Empowering Dreams, One Child at a Time."</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1.5rem; text-align: center;">Our Core Values</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">❤️</div>
+                        <strong>Compassion</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">We care deeply about every child's wellbeing</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                        <strong>Integrity</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Transparency in all we do</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚖️</div>
+                        <strong>Equality</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Every child deserves equal opportunity</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💪</div>
+                        <strong>Empowerment</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Building confidence and capability</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                        <strong>Accountability</strong>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">Responsible stewardship of resources</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" onclick="showSection('donate')" class="btn">Support Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <div class="intro">
+                <h2>Our Programs & Impact</h2>
+                <p>Comprehensive support that keeps children in school and helps them thrive</p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">🎓</div>
+                    <h3>School Fees Support</h3>
+                    <p>We cover full tuition costs for 50 pupils, removing the primary barrier to education. This ensures consistent attendance and allows children to focus on learning rather than worrying about being sent home for unpaid fees.</p>
+                    <div class="image-placeholder" style="margin-top: 1rem; height: 150px; font-size: 0.9rem;">Students receiving fee payment receipts with grateful smiles</div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon">👔</div>
+                    <h3>Uniform and Food Aid</h3>
+                    <p>Every child receives proper school uniforms and daily nutritious meals. This dignifies their school experience and ensures they have the energy and confidence to participate fully in their education.</p>
+                    <div class="image-placeholder" style="margin-top: 1rem; height: 150px; font-size: 0.9rem;">Children in clean uniforms enjoying a healthy meal together</div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon">🌱</div>
+                    <h3>Mentorship and Guidance</h3>
+                    <p>Our mentorship program connects pupils with caring adults who provide emotional support, academic guidance, and life skills training. We help them set goals, build self-esteem, and navigate challenges.</p>
+                    <div class="image-placeholder" style="margin-top: 1rem; height: 150px; font-size: 0.9rem;">Mentor and student having an encouraging conversation</div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon">🤝</div>
+                    <h3>Community Partnerships</h3>
+                    <p>We collaborate with local schools, community leaders, and parents to create a supportive ecosystem. These partnerships ensure sustainability and help us identify children most in need of support.</p>
+                    <div class="image-placeholder" style="margin-top: 1rem; height: 150px; font-size: 0.9rem;">Community meeting with parents, teachers, and foundation members</div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--sky-blue) 0%, var(--deep-blue) 100%); color: var(--white); padding: 3rem; border-radius: 10px; margin-top: 3rem; text-align: center;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Our Impact So Far</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <div style="font-size: 3rem; font-weight: bold;">50</div>
+                        <p>Pupils Supported</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: bold;">100%</div>
+                        <p>School Attendance</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: bold;">3</div>
+                        <p>Schools Partnered</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: bold;">50+</div>
+                        <p>Donors Worldwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" onclick="showSection('donate')" class="btn">Help Us Expand Our Reach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories">
+        <div class="container">
+            <div class="intro">
+                <h2>Pupils' Stories</h2>
+                <p>Meet the incredible children whose dreams you're helping to fulfill</p>
+            </div>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">A</div>
+                        <div class="story-info">
+                            <h3>Achieng Wanjiru</h3>
+                            <p>Grade 7 • Dreams of becoming a Doctor</p>
+                        </div>
+                    </div>
+                    <p>"Before joining the program, I missed so many days of school because my family couldn't afford fees. Now I'm the top student in my class! I want to become a doctor so I can help people in my community who can't afford medical care. Thank you for believing in me."</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">D</div>
+                        <div class="story-info">
+                            <h3>David Otieno</h3>
+                            <p>Grade 6 • Dreams of becoming an Engineer</p>
+                        </div>
+                    </div>
+                    <p>"I love mathematics and building things! My teacher says I have a gift for solving problems. With the support from Hope for Tomorrow, I get to stay in school and learn every day. One day I'll design buildings and bridges that help develop my country. Education has given me hope."</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">M</div>
+                        <div class="story-info">
+                            <h3>Mary Njeri</h3>
+                            <p>Grade 8 • Dreams of becoming a Teacher</p>
+                        </div>
+                    </div>
+                    <p>"When I couldn't attend school, I felt like my dreams were slipping away. Now I'm back, wearing my uniform with pride, and studying hard. I want to become a teacher because I know what it feels like to struggle. I want to inspire other children the way this foundation has inspired me."</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">B</div>
+                        <div class="story-info">
+                            <h3>Brian Kamau</h3>
+                            <p>Grade 5 • Dreams of becoming a Pilot</p>
+                        </div>
+                    </div>
+                    <p>"Every time I see a plane in the sky, I dream of flying it one day. My mentor from the foundation tells me that with hard work and education, anything is possible. The uniforms and meals I receive mean I can concentrate on my studies. I'm working hard to make my dream come true!"</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">L</div>
+                        <div class="story-info">
+                            <h3>Lucy Akinyi</h3>
+                            <p>Grade 7 • Dreams of becoming a Lawyer</p>
+                        </div>
+                    </div>
+                    <p>"I used to worry about where my next meal would come from, but now I can focus on my books. I love debating and standing up for what's right. I dream of becoming a lawyer to defend people who can't defend themselves, especially children. This foundation showed me kindness, and I want to pass it on."</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">J</div>
+                        <div class="story-info">
+                            <h3>James Kipchoge</h3>
+                            <p>Grade 6 • Dreams of becoming an Accountant</p>
+                        </div>
+                    </div>
+                    <p>"Numbers are my favorite! I'm good at math and helping my classmates understand difficult problems. Thanks to this program, I don't have to drop out to help my family. I want to become an accountant and help businesses and families manage their money wisely. Education is changing my life!"</p>
+                </div>
+            </div>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1rem;">Your Support Creates These Stories</h3>
+                <p style="max-width: 700px; margin: 0 auto;">Every child has a unique dream and incredible potential. With your help, we're ensuring they get the chance to pursue those dreams. Join us in writing more success stories.</p>
+                <a href="#" onclick="showSection('donate')" class="btn" style="margin-top: 1.5rem;">Change a Child's Story Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate">
+        <div class="container">
+            <div class="intro">
+                <h2>Make a Lasting Impact</h2>
+                <p>Your generosity transforms lives and builds futures</p>
+            </div>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1rem;">Why Your Donation Matters</h3>
+                <p style="line-height: 1.8; margin-bottom: 1rem;">Education is the most powerful tool for breaking the cycle of poverty. When you donate to Hope for Tomorrow Foundation, you're not just paying for school fees—you're investing in a child's entire future. You're ensuring they have uniforms that give them dignity, meals that fuel their learning, and mentorship that guides them toward success.</p>
+                <p style="line-height: 1.8; margin-bottom: 1rem;">The 50 pupils in our program come from families struggling with extreme poverty. Many have lost parents, live in single-parent households, or face circumstances beyond their control. Without support, these bright, capable children would be forced to abandon their education and their dreams.</p>
+                <p style="line-height: 1.8;"><strong>Your donation keeps them in school. Your donation gives them hope. Your donation changes lives forever.</strong></p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--sky-blue) 0%, var(--deep-blue) 100%); color: var(--white); padding: 2rem; border-radius: 10px; margin: 2rem 0; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem;">What Your Donation Provides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Full school fees</strong> for an entire academic year
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Complete uniforms</strong> and school supplies
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Daily nutritious meals</strong> to fuel learning
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Mentorship programs</strong> and guidance
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Regular monitoring</strong> and support
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <strong>Hope for a brighter future</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--sky-blue); text-align: center; margin: 3rem 0 2rem;">Choose Your Donation Method</h3>
+
+            <div class="donate-methods">
+                <div class="donate-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+                    <h3>GoFundMe</h3>
+                    <p>Secure international donations via credit card, debit card, or PayPal. Perfect for donors worldwide who want to contribute easily and safely.</p>
+                    <a href="https://gofundme.com" target="_blank" class="donate-btn">Donate via GoFundMe</a>
+                </div>
+
+                <div class="donate-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💳</div>
+                    <h3>PayPal</h3>
+                    <p>Fast, secure, and convenient. Use your PayPal account or any major credit card to make your contribution and support our pupils.</p>
+                    <a href="https://paypal.com" target="_blank" class="donate-btn">Donate via PayPal</a>
+                </div>
+
+                <div class="donate-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+                    <h3>M-Pesa (Kenya)</h3>
+                    <p>For our supporters in Kenya, donate directly through M-Pesa for instant, convenient giving.</p>
+                    <div style="margin-top: 1rem; padding: 1rem; background: var(--light-gray); border-radius: 5px;">
+                        <strong>Paybill:</strong> Coming Soon<br>
+                        <strong>Account:</strong> Hope Foundation<br>
+                        <small>Contact us for current M-Pesa details</small>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 3rem;">
+                <h3 style="color: var(--sky-blue); text-align: center; margin-bottom: 1.5rem;">Our Commitment to Transparency</h3>
+                <p style="text-align: center; line-height: 1.8; max-width: 800px; margin: 0 auto;">Every donation is tracked and used exclusively for supporting our pupils. We maintain complete transparency through regular updates, financial reports, and progress stories. You'll see exactly how your generosity is making a difference. Check our <a href="#" onclick="showSection('blog')" style="color: var(--sky-blue); text-decoration: none; font-weight: bold;">Updates section</a> for detailed reports on fund usage and pupil progress.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--light-gold) 0%, var(--gold) 100%); border-radius: 10px;">
+                <h3 style="color: var(--white); margin-bottom: 1rem; font-size: 1.8rem;">Every Contribution Counts</h3>
+                <p style="color: var(--white); font-size: 1.1rem;">Whether large or small, your donation makes a real difference. Together, we're building a generation of educated, empowered young Kenyans ready to transform their communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="intro">
+                <h2>Updates & Impact Stories</h2>
+                <p>Stay connected with our progress and see how your donations are changing lives</p>
+            </div>
+
+            <div class="blog-posts">
+                <div class="blog-card">
+                    <div class="blog-image">📸 Photo of first day of term with all 50 pupils in uniform</div>
+                    <div class="blog-content">
+                        <div class="blog-date">October 15, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">Term 3 Begins with Full Enrollment!</h3>
+                        <p>We're thrilled to report that all 50 pupils have successfully started the new term! Every child received their uniforms, supplies, and had their fees paid in full. The smiles on their faces as they walked through the school gates were priceless. Thank you to all our donors who made this possible.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">📊 Chart showing improved academic performance</div>
+                    <div class="blog-content">
+                        <div class="blog-date">September 28, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">Academic Progress Report: Remarkable Improvement</h3>
+                        <p>Our pupils' academic performance has improved dramatically! 80% of students have moved up at least one grade level in their class rankings. Teachers report better attendance, increased participation, and improved confidence. Education truly transforms lives.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">💰 Financial transparency report document</div>
+                    <div class="blog-content">
+                        <div class="blog-date">September 10, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">Q3 Financial Report: Complete Transparency</h3>
+                        <p>We've published our detailed financial report showing exactly how donations were used: 75% for school fees, 15% for uniforms and supplies, 8% for food programs, and 2% for administrative costs. Every shilling is accounted for and invested in our children's futures.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🎉 Community gathering celebrating success</div>
+                    <div class="blog-content">
+                        <div class="blog-date">August 22, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">Community Celebration: Parents Thank Donors</h3>
+                        <p>We hosted a community gathering where parents, pupils, and teachers came together to celebrate the foundation's impact. Parents shared emotional testimonies about how the program has changed their families' lives. The gratitude was overwhelming.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🌟 Student receiving award at school assembly</div>
+                    <div class="blog-content">
+                        <div class="blog-date">August 5, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">Success Story: Achieng Tops Her Class!</h3>
+                        <p>Incredible news! Achieng Wanjiru, one of our Grade 7 pupils, has emerged as the top student in her entire school! Her teachers say her dedication and hard work are inspiring. This is what's possible when barriers to education are removed.</p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🤝 New partnership signing ceremony</div>
+                    <div class="blog-content">
+                        <div class="blog-date">July 18, 2025</div>
+                        <h3 style="color: var(--sky-blue); margin-bottom: 0.5rem;">New School Partnership Expands Our Reach</h3>
+                        <p>We've partnered with two additional schools in kenya, allowing us to provide more comprehensive support and reach more children in need. Our network of educational partners continues to grow, amplifying our impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: var(--sky-blue); margin-bottom: 1rem;">Stay Updated</h3>
+                <p style="margin-bottom: 1.5rem;">We publish regular updates about our pupils' progress, financial reports, and success stories. Follow us on social media or check back here regularly to see the impact of your support.</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#" class="donate-btn">Subscribe to Updates</a>
+                    <a href="#" onclick="showSection('donate')" class="donate-btn">Support Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="intro">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you! Whether you have questions, want to partner with us, or need more information</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="color: var(--sky-blue); margin-bottom: 1.5rem;">Send Us a Message</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <strong>📧 Email</strong>
+                        <a href="mailto:info@hopefortomorrow.org" style="color: var(--sky-blue); text-decoration: none;">info@hopefortomorrow.org</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>📱 Phone</strong>
+                        <a href="tel:+254700000000" style="color: var(--sky-blue); text-decoration: none;">+254 700 000 000</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>📍 Location</strong>
+                        Kenya
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>🌐 Follow Us</strong>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                            <a href="#" style="color: var(--sky-blue); font-size: 1.5rem;">📘</a>
+                            <a href="#" style="color: var(--sky-blue); font-size: 1.5rem;">🐦</a>
+                            <a href="#" style="color: var(--sky-blue); font-size: 1.5rem;">📷</a>
+                            <a href="#" style="color: var(--sky-blue); font-size: 1.5rem;">💼</a>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--white); padding: 1.5rem; border-radius: 5px; margin-top: 2rem;">
+                        <strong style="color: var(--sky-blue);">Office Hours</strong>
+                        <p style="margin-top: 0.5rem; line-height: 1.8;">
+                            Monday - Friday: 8:00 AM - 5:00 PM<br>
+                            Saturday: 9:00 AM - 1:00 PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--sky-blue) 0%, var(--deep-blue) 100%); color: var(--white); padding: 1.5rem; border-radius: 5px; margin-top: 1.5rem; text-align: center;">
+                        <p style="margin-bottom: 1rem;">Want to visit our programs?</p>
+                        <a href="#" onclick="showSection('contact'); alert('Thank you for your interest! Please email us to schedule a visit.');" style="color: var(--gold); font-weight: bold; text-decoration: none;">Schedule a Visit →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-donate">
+                <h3>Join Us in Empowering Dreams</h3>
+                <p style="margin-bottom: 1rem;">Every child deserves the opportunity to learn and thrive</p>
+                <a href="#" onclick="showSection('donate')" class="btn">Donate Now</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="YouTube">📺</a>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left; margin: 2rem 0;">
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#" onclick="showSection('home')" style="color: var(--white); text-decoration: none;">Home</a>
+                        <a href="#" onclick="showSection('about')" style="color: var(--white); text-decoration: none;">About Us</a>
+                        <a href="#" onclick="showSection('programs')" style="color: var(--white); text-decoration: none;">Our Work</a>
+                        <a href="#" onclick="showSection('stories')" style="color: var(--white); text-decoration: none;">Pupils' Stories</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Get Involved</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#" onclick="showSection('donate')" style="color: var(--white); text-decoration: none;">Donate</a>
+                        <a href="#" onclick="showSection('blog')" style="color: var(--white); text-decoration: none;">Updates</a>
+                        <a href="#" onclick="showSection('contact')" style="color: var(--white); text-decoration: none;">Contact</a>
+                        <a href="#" style="color: var(--white); text-decoration: none;">Volunteer</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Contact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span>Nairobi, Kenya</span>
+                        <a href="mailto:info@hopefortomorrow.org" style="color: var(--white); text-decoration: none;">info@hopefortomorrow.org</a>
+                        <a href="tel:+2547" style="color: var(--white); text-decoration: none;">+254 700 000 000</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 Hope for Tomorrow Foundation. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">Empowering Dreams, One Child at a Time</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav-container');
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.mobile-toggle');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
